@@ -47,7 +47,7 @@ function display_tool(n)
     {
         var str1 = document.getElementById("text").innerHTML;
         var str2 = document.getElementById(n).innerHTML;
-        if((str2 == '-' && flag == 0)||(str2 == 'sin'&&flag == 0))
+        if((str2 == '-' && flag == 0)||(str2 == 'sin'&&flag == 0)||(str2 == 'cos'&&flag == 0)||(str2 == 'tan'&&flag == 0)||(str2 == 'asin'&&flag == 0))
         {
             document.getElementById("text").innerHTML = str2;
             flag = 1;
@@ -75,6 +75,44 @@ function display_tool(n)
             var tstr = 'sin'+String(i);
             tstr1 = tstr.substr(3);
             var num = Math.sin(parseFloat(tstr1));
+            str1 = str1.replace(tstr,String(num));
+            if(tstr == tempstr1)
+                break;
+        }
+        // ---------------------------------------------------sin
+        for(var i = 10;i<100;i++)
+        {
+            var tstr = 'cos'+String(i);
+            tstr1 = tstr.substr(3);
+            var num = Math.cos(parseFloat(tstr1));
+            str1 = str1.replace(tstr,String(num));
+            if(tstr == tempstr1)
+                break;
+        }
+        for(var i = 0;i<10;i++)
+        {
+            var tstr = 'cos'+String(i);
+            tstr1 = tstr.substr(3);
+            var num = Math.cos(parseFloat(tstr1));
+            str1 = str1.replace(tstr,String(num));
+            if(tstr == tempstr1)
+                break;
+        }
+        // -----------------------------------------------------cos
+        for(var i = 10;i<100;i++)
+        {
+            var tstr = 'tan'+String(i);
+            tstr1 = tstr.substr(3);
+            var num = Math.tan(parseFloat(tstr1));
+            str1 = str1.replace(tstr,String(num));
+            if(tstr == tempstr1)
+                break;
+        }
+        for(var i = 0;i<10;i++)
+        {
+            var tstr = 'tan'+String(i);
+            tstr1 = tstr.substr(3);
+            var num = Math.tan(parseFloat(tstr1));
             str1 = str1.replace(tstr,String(num));
             if(tstr == tempstr1)
                 break;
