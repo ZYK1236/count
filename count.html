@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>计算器</title>
+        <script text="text/javascript" src="Cou.js"></script>
+        <script type="text/javascript" src="canvas-nest/canvas-nest.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="2.css">
+    </head>
+    <body>
+        <script type="text/javascript" color="0,0,0" opacity='0.8' count="49" src="canvas-nest/canvas-nest-nomobile.min.js"></script>
+        <div class="G">
+            <div class="README">
+                <h1>计算器</h1>
+                <h2>version:1.1</h2>
+                <p>1.支持连续运算和多位运算</p>
+                <p>2.支持四则混合运算</p>
+                <p>3.支持一键清零与del</p>
+                <br><br><br>
+                <h2 id="zyk">作者&版权所有&copy; :ZYK</h2>
+                <button class="button1" onclick="fresh()">更新日志</button>
+            </div>
+            <div class="global">
+                <div class="in1">
+                    <div id="text">0</div>
+                </div>
+                <div class="in2">
+                    <div class="guide1">
+                        <div class="box_num">
+                            <div class="num" id="1" onclick="display_num(id)">1</div>
+                            <div class="num" id="4" onclick="display_num(id)">4</div>
+                            <div class="num" id="7" onclick="display_num(id)">7</div>
+                            <div class="num" id="." onclick="display_tool(id)">.</div>
+                        </div>
+                        <div class="box_num">
+                            <div class="num" id="2" onclick="display_num(id)">2</div>
+                            <div class="num" id="5" onclick="display_num(id)">5</div>
+                            <div class="num" id="8" onclick="display_num(id)">8</div>
+                            <div class="num" id="0" onclick="display_num(id)">0</div>
+                        </div>
+                        <div class="box_num">
+                            <div class="num" id="3" onclick="display_num(id)">3</div>
+                            <div class="num" id="6" onclick="display_num(id)">6</div>
+                            <div class="num" id="9" onclick="display_num(id)">9</div>
+                            <div class="num" id="c" onclick="clea()">c</div>
+                        </div>
+                    </div>
+                    <div class="guide2">
+                        <div class="box_num">
+                            <div class="num" id="+" onclick="display_tool(id)">+</div>
+                            <div class="num" id="/" onclick="display_tool(id)">/</div>
+                            <div class="num" id='Math.PI' onclick="display_num(id)">π</div>
+                        </div>
+                        <div class="box_num">
+                            <div class="num" id="-" onclick="display_tool(id)">-</div>
+                            <div class="num" onclick="de()">del</div>
+                            <div class="num" id="Math.E" onclick="display_num(id)">e</div>
+                        </div>
+                        <div class="box_num">
+                            <div class="num" id="*" onclick="display_tool(id)">*</div>
+                            <div class="num" id="*" onclick="display_tool(id)">#</div>
+                            <div class="num" id="*" onclick="display_tool(id)">#</div>
+                        </div>    
+                    </div>
+                    <div class="guide3">
+                        <div class="box_num">
+                            <div class="num">sin</div>
+                            <div class="num">cos</div>
+                            <div class="num">tan</div>
+                        </div>
+                        <div class="box_num">
+                            <div class="num">arcsin</div>
+                            <div class="num">arccos</div>
+                            <div class="num">arctan</div>
+                        </div>
+                        <div class="box_num">
+                            <div class="num">ln</div>
+                            <div class="num">^</div>
+                            <div class="special_num" id="=" onclick="display_tool(id)">=</div>
+                        </div>    
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </body>
+</html>
