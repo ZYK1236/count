@@ -3,8 +3,7 @@
     <head>
         <title>计算器</title>
         <script text="text/javascript" src="Cou.js"></script>
-        <script type="text/javascript" src="canvas-nest.min.js"></script>
-        <script type="text/javascript" src="canvas-nest-nomobile.min.js"></script>
+        <script type="text/javascript" src="canvas-nest/canvas-nest.min.js"></script>
         <link rel="stylesheet" type="text/css" href="2.css">
     </head>
     <body>
@@ -12,7 +11,7 @@
         <div class="G">
             <div class="README">
                 <h1>计算器</h1>
-                <h2>version:1.1</h2>
+                <h2>version:1.2</h2>
                 <p>1.支持连续运算和多位运算</p>
                 <p>2.支持四则混合运算</p>
                 <p>3.支持一键清零与del</p>
@@ -42,7 +41,7 @@
                             <div class="num" id="3" onclick="display_num(id)">3</div>
                             <div class="num" id="6" onclick="display_num(id)">6</div>
                             <div class="num" id="9" onclick="display_num(id)">9</div>
-                            <div class="num" id="c" onclick="clea()">c</div>
+                            <div class="num" id="c" onclick="clea()">归零</div>
                         </div>
                     </div>
                     <div class="guide2">
@@ -53,13 +52,11 @@
                         </div>
                         <div class="box_num">
                             <div class="num" id="-" onclick="display_tool(id)">-</div>
-                            <div class="num" onclick="de()">del</div>
+                            <div class="num" id="*" onclick="display_tool(id)">*</div>
                             <div class="num" id="Math.E" onclick="display_num(id)">e</div>
                         </div>
                         <div class="box_num">
-                            <div class="num" id="*" onclick="display_tool(id)">*</div>
-                            <div class="num" id="*" onclick="display_tool(id)">#</div>
-                            <div class="num" id="*" onclick="display_tool(id)">#</div>
+                            <div class="num" onclick="de()">del</div>
                         </div>    
                     </div>
                     <div class="guide3">
