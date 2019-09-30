@@ -47,8 +47,11 @@ function display_tool(n)
     {
         var str1 = document.getElementById("text").innerHTML;
         var str2 = document.getElementById(n).innerHTML;
-        if(str2 == '-' && flag == 0)
+        if((str2 == '-' && flag == 0)||(str2 == 'sin'&&flag == 0))
+        {
             document.getElementById("text").innerHTML = str2;
+            flag = 1;
+        }
         else{
             str1 = str1+str2;
             document.getElementById("text").innerHTML = str1;
@@ -57,7 +60,25 @@ function display_tool(n)
     else
     {
         var str1 = document.getElementById("text").innerHTML;
-        var num_len = str1.length;
+        var tempstr1 = str1;
+        for(var i = 10;i<100;i++)
+        {
+            var tstr = 'sin'+String(i);
+            tstr1 = tstr.substr(3);
+            var num = Math.sin(parseFloat(tstr1));
+            str1 = str1.replace(tstr,String(num));
+            if(tstr == tempstr1)
+                break;
+        }
+        for(var i = 0;i<10;i++)
+        {
+            var tstr = 'sin'+String(i);
+            tstr1 = tstr.substr(3);
+            var num = Math.sin(parseFloat(tstr1));
+            str1 = str1.replace(tstr,String(num));
+            if(tstr == tempstr1)
+                break;
+        }
         str1 = str1.replace(/π/g, 'Math.PI');
         str1 = str1.replace(/e/g,'Math.E');
         sum = eval(str1);
