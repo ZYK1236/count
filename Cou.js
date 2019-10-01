@@ -1,19 +1,33 @@
 var flag = 0;
 var sum = 0;
 
-function fresh()
+function fresh1()
 {
     window.location.href = "update.html"
 }
+
+function fresh2()
+{
+    window.location.href = "Thanks.html"
+}
+
 function clea()
 {
     sum = 0;
+    flag = 0;
     document.getElementById("text").innerHTML = '0';
 }
 
 function de()
 {
     var num_len = document.getElementById("text").innerHTML.length;
+    if(num_len == 1)
+    {
+        flag = 0;
+        sum = 0;
+        document.getElementById("text").innerHTML = '0';
+        return;
+    }
     var str = document.getElementById("text").innerHTML;
     str = str.substr(0,num_len-1);
     document.getElementById("text").innerHTML = str;
@@ -30,89 +44,88 @@ function display_num(n)
         num2 = num2 + num1;
         document.getElementById("text").innerHTML = num2;        
     }
+    flag = 1;
 }
 
 function display_tool(n)
 {
     if(n!='=')
     {
-        switch(n)
-        {
-            case "+":flag = 1;
-            break;
-            case "-":flag = 2;
-            break;
-            case "/":flag = 3;
-            break;
-            case "*":flag = 4;
-            break;
-            // case "Math.PI":flag = 5;
-            // break;
-            // case "Math.E" :flag = 6;
-            // break;
-        }    // flag代表加减乘除等符号的代号
         var str1 = document.getElementById("text").innerHTML;
         var str2 = document.getElementById(n).innerHTML;
-        str1 = str1+str2;
-        document.getElementById("text").innerHTML = str1;
+        if((str2 == '-' && flag == 0)||(str2 == 'sin'&&flag == 0)||(str2 == 'cos'&&flag == 0)||(str2 == 'tan'&&flag == 0))
+        {
+            document.getElementById("text").innerHTML = str2;
+            flag = 1;
+        }
+        else{
+            str1 = str1+str2;
+            document.getElementById("text").innerHTML = str1;
+        }
     }
     else
     {
         var str1 = document.getElementById("text").innerHTML;
-        /*switch(flag)
+        var tempstr1 = str1;
+        for(var i = 10;i<100;i++)
         {
-            case 1: var my_num = str1.split("+");
-                    num_len = my_num.length;
-                    for (var i = 0;i < num_len;i++){
-                        if(my_num[i] == 'π')
-                            sum = sum + Math.PI;
-                        else
-                            sum = sum + parseFloat(my_num[i]);
-                    }
-                    break;
-            case 2: var my_num = str1.split("-");
-                    num_len = my_num.length;
-                    if(my_num[0] == 'π')
-                        sum = Math.PI;
-                    else
-                        sum = parseFloat(my_num[0]);
-                    for (var i = 1;i < num_len;i++)
-                    {
-                        if(my_num[i] == 'π')
-                            sum = sum - Math.PI;
-                        else
-                            sum = sum - parseFloat(my_num[i]);
-                    }
-                     break;
-            case 3: var my_num = str1.split("/");
-                    num_len = my_num.length;
-                    if(my_num[0] == 'π')
-                        sum = Math.PI;
-                    else
-                        sum = parseFloat(my_num[0]);
-                    for (var i = 1;i < num_len;i++)
-                    {
-                        if(my_num[i] == 'π')
-                            sum = sum / Math.PI;
-                        else
-                            sum = sum / parseFloat(my_num[i]);
-                    }
-                    break;   
-            case 4: var my_num = str1.split("*");
-                    num_len = my_num.length;
-                    sum = 1;
-                    for (var i = 0;i < num_len;i++)
-                    {
-                        if(my_num[i] == 'π')
-                            sum = sum * Math.PI;
-                        else
-                            sum = sum * parseFloat(my_num[i]);
-                    }
-                    break;                              
-        }*/
-        var num_len = str1.length;
+            var tstr = 'sin'+String(i);
+            tstr1 = tstr.substr(3);
+            var num = Math.sin(parseFloat(tstr1));
+            str1 = str1.replace(tstr,String(num));
+            if(tstr == tempstr1)
+                break;
+        }
+        for(var i = 0;i<10;i++)
+        {
+            var tstr = 'sin'+String(i);
+            tstr1 = tstr.substr(3);
+            var num = Math.sin(parseFloat(tstr1));
+            str1 = str1.replace(tstr,String(num));
+            if(tstr == tempstr1)
+                break;
+        }
+        // ---------------------------------------------------sin
+        for(var i = 10;i<100;i++)
+        {
+            var tstr = 'cos'+String(i);
+            tstr1 = tstr.substr(3);
+            var num = Math.cos(parseFloat(tstr1));
+            str1 = str1.replace(tstr,String(num));
+            if(tstr == tempstr1)
+                break;
+        }
+        for(var i = 0;i<10;i++)
+        {
+            var tstr = 'cos'+String(i);
+            tstr1 = tstr.substr(3);
+            var num = Math.cos(parseFloat(tstr1));
+            str1 = str1.replace(tstr,String(num));
+            if(tstr == tempstr1)
+                break;
+        }
+        // -----------------------------------------------------cos
+        for(var i = 10;i<100;i++)
+        {
+            var tstr = 'tan'+String(i);
+            tstr1 = tstr.substr(3);
+            var num = Math.tan(parseFloat(tstr1));
+            str1 = str1.replace(tstr,String(num));
+            if(tstr == tempstr1)
+                break;
+        }
+        for(var i = 0;i<10;i++)
+        {
+            var tstr = 'tan'+String(i);
+            tstr1 = tstr.substr(3);
+            var num = Math.tan(parseFloat(tstr1));
+            str1 = str1.replace(tstr,String(num));
+            if(tstr == tempstr1)
+                break;
+        }
         str1 = str1.replace(/π/g, 'Math.PI');
         str1 = str1.replace(/e/g,'Math.E');
+        // str1 = str1.replace(/^/g,'**');
         sum = eval(str1);
         document.getElementById("text").innerHTML = String(sum);
         sum = 0;

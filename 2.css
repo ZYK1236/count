@@ -15,30 +15,33 @@ html
 h1
 {
     font-size: 3rem;
-    padding-top: 2rem;
+    padding-top: 1rem;
 }
 #zyk
 {
-    padding-left: 3rem;
+    padding-left: 2rem;
 }
 p{
-    padding-left: 4rem;
-    font-size: 2rem;
+    padding-left: 2rem;
+    font-size: 1.6rem;
 }
-span{
-    font-size: 2.5rem;
-    color: red;
+.button
+{
+    display: flex;
+    flex-direction: row;
 }
+
 .button1
 {
+    display: inline-block;
     background-color: rgb(255, 255, 255);
     border: 0.1rem solid black;
     color: rgb(0, 0, 0);
     padding: 0.5rem 0.8rem;
+    margin-left: 2rem;
     text-align: center;
     text-decoration: none;
-    display: inline-block;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     cursor: pointer;
 }
 .button1:hover
@@ -131,7 +134,7 @@ span{
 }
 .special_num
 {
-    flex-grow: 2;
+    flex-grow: 7;
     font-size: 2rem;
     text-align: center;
     padding-top: 1rem;
@@ -141,6 +144,16 @@ span{
     background-color: rgb(0, 136, 255);
     color: aliceblue;
     cursor: pointer;
+}
+
+#c
+{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.mul
+{
+    height: 5.871rem;
 }
 /* 上面是大致框架，下面是修饰 */
 .num:hover
