@@ -6,21 +6,26 @@
         <link rel="stylesheet" type="text/css" href="2.css">
     </head>
     <body>
-        <script type="text/javascript" color="0,0,0" opacity='0.8' count="49">
+        <script type="text/javascript" color="0,0,0" opacity='0.8' count="70">
             !function(){function o(w,v,i){return w.getAttribute(v)||i}function j(i){return document.getElementsByTagName(i)}function l(){var i=j("script"),w=i.length,v=i[w-1];return{l:w,z:o(v,"zIndex",-1),o:o(v,"opacity",0.5),c:o(v,"color","0,0,0"),n:o(v,"count",99)}}function k(){r=u.width=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth,n=u.height=window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight}function b(){e.clearRect(0,0,r,n);var w=[f].concat(t);var x,v,A,B,z,y;t.forEach(function(i){i.x+=i.xa,i.y+=i.ya,i.xa*=i.x>r||i.x<0?-1:1,i.ya*=i.y>n||i.y<0?-1:1,e.fillRect(i.x-0.5,i.y-0.5,1,1);for(v=0;v<w.length;v++){x=w[v];if(i!==x&&null!==x.x&&null!==x.y){B=i.x-x.x,z=i.y-x.y,y=B*B+z*z;y<x.max&&(x===f&&y>=x.max/2&&(i.x-=0.03*B,i.y-=0.03*z),A=(x.max-y)/x.max,e.beginPath(),e.lineWidth=A/2,e.strokeStyle="rgba("+s.c+","+(A+0.2)+")",e.moveTo(i.x,i.y),e.lineTo(x.x,x.y),e.stroke())}}w.splice(w.indexOf(i),1)}),m(b)}var u=document.createElement("canvas"),s=l(),c="c_n"+s.l,e=u.getContext("2d"),r,n,m=window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||window.oRequestAnimationFrame||window.msRequestAnimationFrame||function(i){window.setTimeout(i,1000/45)},a=Math.random,f={x:null,y:null,max:20000};u.id=c;u.style.cssText="position:fixed;top:0;left:0;z-index:"+s.z+";opacity:"+s.o;j("body")[0].appendChild(u);k(),window.onresize=k;window.onmousemove=function(i){i=i||window.event,f.x=i.clientX,f.y=i.clientY},window.onmouseout=function(){f.x=null,f.y=null};for(var t=[],p=0;s.n>p;p++){var h=a()*r,g=a()*n,q=2*a()-1,d=2*a()-1;t.push({x:h,y:g,xa:q,ya:d,max:6000})}setTimeout(function(){b()},100)}();
         </script>
         <div class="G">
             <div class="README">
                 <h1>计算器</h1>
-                <h2>version:1.4</h2>
+                <h2>version:1.5</h2>
                 <p>1.支持连续运算和多位运算</p>
                 <p>2.支持四则混合运算</p>
                 <p>3.支持一键清零与del</p>
                 <p>4.支持函数三角运算(范围:0~100,暂且只支持整数)</p>
-                <p>注:暂时不支持三角函数负号运算,由sin(-x)=-sinx等规律大家可以自行推导</p>
+                <p>5.支持带有幂运算的混合运算</p>
+                <br>
+                <p>注:暂时不支持三角函数负号运算,由sin(-x)=-sinx等规律大家可以自行推导,且三角函数暂时只支持一次输入，运算中不能出现>=2个三角函数<br></p>
                 <br><br><br>
                 <h2 id="zyk">作者&版权所有&copy; :ZYK</h2>
-                <button class="button1" onclick="fresh()">更新日志</button>
+                <div class="button">
+                    <button class="button1" onclick="fresh1()">更新日志</button>
+                    <button class="button1" onclick="fresh2()">特别鸣谢</button>
+                </div>
             </div>
             <div class="global">
                 <div class="in1">
@@ -71,7 +76,7 @@
                         <!-- <div class="box_num">
                         </div> -->
                         <div class="box_num">
-                            <div class="num">^</div>
+                            <div class="num" id="**" onclick="display_tool(id)">**</div>
                             <div class="special_num" id="=" onclick="display_tool(id)">=</div>
                         </div>    
                     </div>

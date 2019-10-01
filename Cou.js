@@ -1,10 +1,16 @@
 var flag = 0;
 var sum = 0;
 
-function fresh()
+function fresh1()
 {
     window.location.href = "update.html"
 }
+
+function fresh2()
+{
+    window.location.href = "Thanks.html"
+}
+
 function clea()
 {
     sum = 0;
@@ -47,7 +53,7 @@ function display_tool(n)
     {
         var str1 = document.getElementById("text").innerHTML;
         var str2 = document.getElementById(n).innerHTML;
-        if((str2 == '-' && flag == 0)||(str2 == 'sin'&&flag == 0)||(str2 == 'cos'&&flag == 0)||(str2 == 'tan'&&flag == 0)||(str2 == 'asin'&&flag == 0))
+        if((str2 == '-' && flag == 0)||(str2 == 'sin'&&flag == 0)||(str2 == 'cos'&&flag == 0)||(str2 == 'tan'&&flag == 0))
         {
             document.getElementById("text").innerHTML = str2;
             flag = 1;
@@ -119,6 +125,7 @@ function display_tool(n)
         }
         str1 = str1.replace(/π/g, 'Math.PI');
         str1 = str1.replace(/e/g,'Math.E');
+        // str1 = str1.replace(/^/g,'**');
         sum = eval(str1);
         document.getElementById("text").innerHTML = String(sum);
         sum = 0;
