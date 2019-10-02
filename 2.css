@@ -2,6 +2,7 @@ html
 {
     font-size: 10px;
 }
+
 .README
 {
     display: flex;
@@ -67,11 +68,11 @@ p{
     width: 30rem;
     font-size: 2rem;
     border: 1px solid rgb(0, 0, 0);
-    
 }
 .in1 #text
 {
     float: right;
+    margin-right: 0.2rem;
     margin-top: 1.5rem;
 }
 /* in2下属guide1,2,3 */
