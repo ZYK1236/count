@@ -1,10 +1,5 @@
 var flag = 0;
 var sum = 0;
-
-<<<<<<< HEAD
-
-=======
->>>>>>> ca5a8e27febbe96259eac213b3232dc324acf0c1
 function fresh1()
 {
     window.location.href = "update.html"
