@@ -1,6 +1,13 @@
 var flag = 0;
 var sum = 0;
 
+function back()
+{
+    str = document.getElementById('text').innerHTML;
+    str = str.substr(0,str.length-2)+str[str.length-1];
+    document.getElementById('text').innerHTML = str;
+}
+
 function fresh1()
 {
     window.location.href = "update.html"
