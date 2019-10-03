@@ -1,17 +1,305 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>物理实验</title>
-        <script text="text/javascript" src="Cou.js"></script>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-        <link rel="stylesheet" type="text/css" href="2.css">
-    </head>
-    <body>
-        <div class="global">
-            <div>
-                
-            </div>
-        </div>
-    </body>
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="css/cs-select.css" />
+		<link rel="stylesheet" type="text/css" href="css/cs-skin-elastic.css" />
+		<style type="text/css">
+			#btn,#btn2
+			{
+				background-color: #027d77;
+				border: none;
+				color: white;padding: 0.5em;
+			}
+			#btn2
+			{
+				display: none;
+			}
+			#btn:hover,#btn2:hover
+			{
+				background-color: #0f9d96;
+			}
+		</style>
+	</head>
+	<body class="color-3">
+		<div id="div1" class="container">
+			<section>
+				<select id="op" class="cs-select cs-skin-elastic">
+					<option value="" disabled selected>选择数据个数</option>
+					<option value="2" data-class="flag-france" >2</option>
+					<option value="4" data-class="flag-brazil" >4</option>
+					<option value="6" data-class="flag-safrica" >6</option>
+					<option value="8" data-class="flag-argentina" >8</option>
+					<option value="10" data-class="flag-brazil" >10</option>
+					<option value="12" data-class="flag-brazil" >12</option>
+				</select>
+			</section>
+		</div>
+		<div style="position: fixed;bottom: 0; text-align: center; padding: 20px;padding-left: 600px">
+			By 西安电子科技大学 F0re5t
+		</div>
+		<div style="margin-top:16em;float: right;">
+		<button id="btn" >提交</button>
+		</div>
+
+		<script type="text/javascript">
+
+			$("#btn").on('click',function(){ 
+				temp =  $('#op').val();
+
+				
+				if($('#op').val() == null )
+					alert('请选择');
+				if($('#op').val() != null )
+				{
+					// alert('提交了'+$('#op').val()+'个数据');
+					var my_div = document.getElementById('div1');
+					var my_bu = document.getElementById('btn');
+					var my_bu2 = document.getElementById('btn2');
+					var my_div2 = document.getElementById('div2');
+					var my_div4 = document.getElementById('div4');
+					var my_div6 = document.getElementById('div6');
+					var my_div8 = document.getElementById('div8');
+					var my_div10 = document.getElementById('div10');
+					var my_div12 = document.getElementById('div12');
+
+					my_div.style.display = "none";
+					my_bu.style.display = 'none';
+					my_bu2.style.display = 'block';
+					
+					if($('#op').val() == 2)
+						my_div2.style.display = 'block';
+					if($('#op').val() == 4)
+						my_div4.style.display = 'block';
+					if($('#op').val() == 6)
+						my_div6.style.display = 'block';
+					if($('#op').val() == 8)
+						my_div8.style.display = 'block';
+					if($('#op').val() == 10)
+						my_div10.style.display = 'block';
+					if($('#op').val() == 12)
+						my_div12.style.display = 'block';
+				}
+			})
+			function sum()
+					{
+						var theResponse = window.prompt("请在此输入仪器不确定度");
+						var tdiv2 = document.getElementById('div2');
+						var tdiv4 = document.getElementById('div4');
+						var tdiv6 = document.getElementById('div6');
+						var tdiv8 = document.getElementById('div8');
+						var tdiv10 = document.getElementById('div10');
+						var tdiv12 = document.getElementById('div12');
+						var an_div = document.getElementById('answer');
+						var bu2 = document.getElementById('btn2');
+						var av = document.getElementById('aver');
+						var sta = document.getElementById('standard');
+						var a =document.getElementById('A');
+						var b = document.getElementById('B');
+						var AB = document.getElementById('AB');
+						var sum = 0;
+
+						if(tdiv2.style.display == "block")
+						{
+							inputs = $('#div2 input');//找到div里面所有的input
+							var val = 0;
+							inputs.each(function(){
+							val +=  + this.value;//值转换为number，然后相加
+							});
+							tdiv2.style.display = 'none';
+							bu2.style.display = 'none';
+							an_div.style.display = 'block';
+							av.value = val / 2;
+							inputs.each(function(){
+								sum = sum + (this.value - av.value)*(this.value - av.value);
+							});
+							sta.value = Math.sqrt(sum/1);
+							a.value = sta.value/Math.sqrt(2);
+							b.value = theResponse/Math.sqrt(3);
+							AB.value = Math.sqrt(a.value*a.value+b.value*b.value);
+						}
+						if(tdiv4.style.display == 'block')
+						{
+							inputs = $('#div4 input');//找到div里面所有的input
+							var val = 0;
+							inputs.each(function(){
+							val +=  + this.value;//值转换为number，然后相加
+							});
+							bu2.style.display = 'none';
+							tdiv4.style.display = 'none';
+							an_div.style.display = 'block';
+							av.value = val / 4;
+							inputs.each(function(){
+								sum = sum + (this.value - av.value)*(this.value - av.value);
+							});
+							sta.value = Math.sqrt(sum/3);
+							a.value = sta.value/Math.sqrt(4);
+							b.value = theResponse/Math.sqrt(3);
+							AB.value = Math.sqrt(a.value*a.value+b.value*b.value);
+
+						}
+						if(tdiv6.style.display == "block")
+						{
+							inputs = $('#div6 input');//找到div里面所有的input
+							var val = 0;
+							inputs.each(function(){
+							val +=  + this.value;//值转换为number，然后相加
+							});
+							bu2.style.display = 'none';
+							tdiv6.style.display = 'none';
+							an_div.style.display = 'block';
+							av.value = val / 6;		
+							inputs.each(function(){
+								sum = sum + (this.value - av.value)*(this.value - av.value);
+							});
+							sta.value = Math.sqrt(sum/5);		
+							a.value = sta.value/Math.sqrt(6);
+							b.value = theResponse/Math.sqrt(3);
+							AB.value = Math.sqrt(a.value*a.value+b.value*b.value);
+
+						}
+						if(tdiv8.style.display == "block")
+						{
+							inputs = $('#div8 input');//找到div里面所有的input
+							var val = 0;
+							inputs.each(function(){
+							val +=  + this.value;//值转换为number，然后相加
+							});
+							bu2.style.display = 'none';
+							tdiv8.style.display = 'none';
+							an_div.style.display = 'block';
+							av.value = val / 8;
+							inputs.each(function(){
+								sum = sum + (this.value - av.value)*(this.value - av.value);
+							});
+							sta.value = Math.sqrt(sum/7);
+							a.value = sta.value/Math.sqrt(8);
+							b.value = theResponse/Math.sqrt(3);
+							AB.value = Math.sqrt(a.value*a.value+b.value*b.value);
+
+						}
+						if(tdiv10.style.display == "block")
+						{
+							inputs = $('#div10 input');//找到div里面所有的input
+							var val = 0;
+							inputs.each(function(){
+							val +=  + this.value;//值转换为number，然后相加
+							});
+							bu2.style.display = 'none';
+							tdiv10.style.display = 'none';
+							an_div.style.display = 'block';
+							av.value = val / 10;
+							inputs.each(function(){
+								sum = sum + (this.value - av.value)*(this.value - av.value);
+							});
+							sta.value = Math.sqrt(sum/9);
+							a.value = sta.value/Math.sqrt(10);
+							b.value = theResponse/Math.sqrt(3);
+							AB.value = Math.sqrt(a.value*a.value+b.value*b.value);
+
+						}						
+						if(tdiv12.style.display == "block")
+						{
+							inputs = $('#div12 input');//找到div里面所有的input
+							var val = 0;
+							inputs.each(function(){
+							val +=  + this.value;//值转换为number，然后相加
+							});
+							bu2.style.display = 'none';
+							tdiv12.style.display = 'none';
+							an_div.style.display = 'block';
+							av.value = val / 12;
+							inputs.each(function(){
+								sum = sum + (this.value - av.value)*(this.value - av.value);
+							});
+							sta.value = Math.sqrt(sum/11);
+							a.value = sta.value/Math.sqrt(12);
+							b.value = theResponse/Math.sqrt(3);
+							AB.value = Math.sqrt(a.value*a.value+b.value*b.value);
+
+						}
+					}
+		</script>
+		<script src="js/classie.js"></script>
+		<script src="js/selectFx.js"></script>
+		<script>
+			(function() {
+				[].slice.call( document.querySelectorAll( 'select.cs-select' ) ).forEach( function(el) {	
+					new SelectFx(el);
+				} );
+			})();
+		</script>
+	</body>
+		<div id="div2" style="display: none">
+			第1组数据:<input type="text"><br><br>
+			第2组数据:<input type="text">
+		</div>
+		<div id="div4" style="display: none">
+			第1组数据:<input type="text"><br><br>
+			第2组数据:<input type="text"><br><br>
+			第3组数据:<input type="text"><br><br>
+			第4组数据:<input type="text"><br><br>
+		</div>
+		<div id="div6" style="display: none">
+			第1组数据:<input type="text"><br><br>
+			第2组数据:<input type="text"><br><br>
+			第3组数据:<input type="text"><br><br>
+			第4组数据:<input type="text"><br><br>
+			第5组数据:<input type="text"><br><br>
+			第6组数据:<input type="text"><br><br>
+		</div>
+		<div id="div8" style="display: none">
+			第1组数据:<input type="text"><br><br>
+			第2组数据:<input type="text"><br><br>
+			第3组数据:<input type="text"><br><br>
+			第4组数据:<input type="text"><br><br>
+			第5组数据:<input type="text"><br><br>
+			第6组数据:<input type="text"><br><br>
+			第7组数据:<input type="text"><br><br>
+			第8组数据:<input type="text"><br><br>
+		</div>
+		<div id="div10" style="display: none">
+			第1组数据:<input type="text"><br><br>
+			第2组数据:<input type="text"><br><br>
+			第3组数据:<input type="text"><br><br>
+			第4组数据:<input type="text"><br><br>
+			第5组数据:<input type="text"><br><br>
+			第6组数据:<input type="text"><br><br>
+			第7组数据:<input type="text"><br><br>
+			第8组数据:<input type="text"><br><br>
+			第9组数据:<input type="text"><br><br>
+			第10组数据:<input type="text"><br><br>
+		</div>
+		<div id="div12" style="display: none">
+			第1组数据:<input type="text"><br><br>
+			第2组数据:<input type="text"><br><br>
+			第3组数据:<input type="text"><br><br>
+			第4组数据:<input type="text"><br><br>
+			第5组数据:<input type="text"><br><br>
+			第6组数据:<input type="text"><br><br>
+			第7组数据:<input type="text"><br><br>
+			第8组数据:<input type="text"><br><br>
+			第9组数据:<input type="text"><br><br>
+			第10组数据:<input type="text"><br><br>
+			第11组数据:<input type="text"><br><br>
+			第12组数据:<input type="text"><br><br>
+			<hr>
+		</div>
+		<div style="margin-left: 2em;margin-top:2em;float: right;">
+			<button id="btn2" onclick="sum()">提交</button>
+		</div>
+		<div id="answer" style="float: left; display:none ">
+			平均数:<input id="aver" type="text"><br><br>
+			标准偏差:<input id="standard" type="text"><br><br>
+			A类不确定度:<input id="A" type="text"><br><br>
+			B类不确定度:<input id="B" type="text"><br><br>
+			合成不确定度:<input id="AB" type="text">
+		</div>
+
 </html>

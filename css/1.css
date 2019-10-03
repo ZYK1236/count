@@ -1,0 +1,292 @@
+/*网页布局*/
+html{
+    font-size: 8px;
+}
+#f2{
+    padding-left: 30rem;
+    /* float: left; */
+}
+#f3{
+    padding-left: 20rem;
+    /* float: left; */
+}
+.s3{
+    /* flex-wrap: wrap; */
+    justify-content: center;
+    align-content: center;
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    width: 100%;
+    height: 50%;
+}
+.guide ul{
+    width: 100%;
+    list-style-type: none;
+    overflow: hidden;
+    zoom: 1;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: rgb(105, 174, 211);
+    margin: 0%;
+    padding: 0%;
+}
+ul li{
+    float: left;
+}
+li a {
+    /* flex-grow: 6; */
+    font-size: 1.6rem;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 1rem 1rem;
+    text-decoration: none;
+}
+li a:hover{
+    background: #47a1d4;
+    font-size: 1.6rem;
+}
+div.s1{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding:3rem;
+    margin: 0 auto;
+    text-align: center;
+    color: #fff;
+    font-size: 3rem;
+}
+.s2{
+    color:white;
+    font-size:2rem;
+}
+.s4{
+    width: 10rem;
+    height: 3rem;
+    margin: 0 auto;
+    padding:0px;
+    text-align: center;
+    vertical-align:middle ;
+    background: #63cdd3;
+    color: white;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+}
+div.a{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width:100%;
+    height:100%;
+    min-width: 1000px;
+    z-index:-10;
+    zoom: 1;
+    /* background-color: #fff; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-position: center 0;
+}
+.a:after{
+    content: "";
+    width:100%;
+    height:100%;
+    position: absolute;
+    left:0;
+    top:0;
+    background: inherit;
+    filter: blur(3px);
+    z-index: 2;
+}
+
+.dropbtn {
+    /* margin-left: 75rem; */
+    width:7rem;
+    background-color: rgb(51, 190, 214);
+    border: white;
+    color: white;
+    padding: 0.5rem,0.5rem;
+    text-align: center;
+    font-size: 2rem;
+    cursor: pointer;
+}
+.dropbtn2{
+    display: table-cell;
+    width: 5rem;
+    background: #63cdd3;
+    color: white;
+    font-size: 1.5rem;
+    border: none;
+    cursor: pointer;
+    margin: 0 auto;
+    text-align: center;
+    vertical-align: center;
+}
+/* 容器 <div> - 需要定位下拉内容 */
+.dropdown {
+    width:100%;
+    height: 50%;
+    margin: 0 auto;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; */
+}
+
+/* 下拉内容 (默认隐藏) */
+.dropdown-content {
+    margin: 0 auto;
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 6rem;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    text-align: center;
+    margin-top: 0.25rem;
+}
+.dropdown-content2 {
+    margin: 0 auto;
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 3.9rem;
+    box-shadow: 0rem 0.8rem 1.6rem 0rem rgba(0,0,0,0.2);
+    text-align: center;
+}
+/* 下拉菜单的链接 */
+.dropdown-content a,.dropdown-content2 a{
+    margin: 0 auto;
+    color: black;
+    text-decoration: none;
+    display: block;
+    font-size: 1.5rem;
+    padding: 0.3rem;
+}
+
+
+/* 鼠标移上去后修改下拉菜单链接颜色 */
+.dropdown-content a:hover,.dropdown-content2 a:hover {background-color: #f1f1f1}
+
+/* 当下拉内容显示后修改下拉按钮的背景颜色  */
+.dropbtn:hover {
+    background-color: #5db3b8;
+}
+.dropbtn2:hover{
+    background-color: #5db3b8;
+}
+/* 在鼠标移上去后显示下拉菜单 */
+.dropbtn:hover .dropdown-content,.dropbtn2:hover .dropdown-content2{
+    display: block;
+}
+
+.space{
+    height: 10px;
+    padding: 0 auto;
+    margin: 0 auto;
+}
+
+.space2{
+    height: 5px;
+    padding:2px;
+    margin: 0 auto;
+}
+.space3{
+    height: 10px;
+    margin: 20px;
+    padding: 10px;
+}
+.space4{
+    padding-top: 5rem;
+    display: flex;
+    flex-direction: row-reverse;
+}
+#name{
+    color: white;
+    font-size: 2rem;
+}
+#radio{
+    color:white;
+    font-size: 1.6rem;
+}
+.button1{
+    background-color: rgb(51, 190, 214);
+    border: none;
+    color: white;
+    padding: 1rem 2rem;
+    margin-right: 18rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 2.0rem;
+    cursor: pointer;
+}
+.button2{
+    margin-left: 75rem;
+    width: 10rem;
+    background-color: rgb(51, 190, 214);
+    border: white;
+    color: white;
+    padding: 0.5rem 1.2rem;
+    text-align: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.button1:hover{
+    background: #7dcfd4;
+}
+.button2:hover{
+    background: #7dcfd4;
+    font-size: 1.8rem;
+}
+#special{
+    color: rgb(42, 142, 189);
+    font-size: 20px;
+}
+.p2{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    padding-top: 3rem;
+    margin: 0 auto;
+    padding: 0 auto;
+    text-align: center;
+}
+
+#l1{
+    display: none;
+}
+
+#s7{
+    width: 5rem;
+    border-block-color: rgb(3, 160, 250);
+    border: #47a1d4;
+    border:2rem;
+    padding: 0.5rem,0.2rem,1rem,1rem;
+    text-align: center;
+}
+
+/* 
+    如果选择器一样性质，可用选择器分组(并集选择器)
+    语法：选择器1,2,3{}
+    通配选择器：选择所有选择器
+    语法：*{}
+    后代选择器
+    语法：父 子选择器{}
+    子元素选择器
+    语法：父亲>子类选择器{}
+
+    伪类：表示元素一种特殊的状态（访问过的连接）
+    为每次访问过的连接设置
+
+    position:fixed:固定的位置，不随浏览器的下滑而改变位置,absolute：绝对位置（设定好top/left就好）,relative：相对正常位置的相对方向
+*/
