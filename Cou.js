@@ -1,5 +1,6 @@
 var flag = 0;
 var sum = 0;
+var testr;
 
 function back()
 {
@@ -139,7 +140,8 @@ function display_tool(n)
         str1 = str1.replace(/e/g,'Math.E');
         // str1 = str1.replace(/^/g,'**');
         sum = eval(str1);
-        document.getElementById("text").innerHTML = String(sum);
+        testr = String(sum);
+        document.getElementById("text").innerHTML = testr.substr(0,8);
         sum = 0;
     }
 }
