@@ -45,7 +45,7 @@ function display_num(n)
 {
     var num1 = document.getElementById(n).innerHTML;
     var num2 = document.getElementById("text").innerHTML;
-    if(num2.length >=10)
+    if(num2.length >=20)
     {
         alert("超过限定数字个数");
         num2 = num2.substr(0,num2.length-1);
